@@ -1,0 +1,8 @@
+[Unit]
+Description=Running test app at startup
+
+[Service]
+ExecStart=/usr/share/test-1.0/test
+
+[Install]
+WantedBy=multi-user.target

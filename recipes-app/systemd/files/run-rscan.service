@@ -1,0 +1,14 @@
+[Unit]                                                                                                                                                
+Description=Running RScan application at startup                                                                                                             
+DefaultDependencies=no
+                                                                                                                                                      
+[Service]                                                                                                                                             
+Type=simple                                                                                                                                           
+ExecStart=/opt/UT/bin/UT
+Environment=platform=wayland                                                                                                                          
+Environment=XDG_RUNTIME_DIR=/run/user/0                                                                                                               
+Environment=WAYLAND_DISPLAY=/run/wayland-0                                                                                                            
+Environment=QT_QPA_PLATFORM=wayland                                                                                                                   
+                                                                                                                                                      
+[Install]                                                                                                                                             
+WantedBy=basic.target                                                                                                                                                                                                                                                                        
