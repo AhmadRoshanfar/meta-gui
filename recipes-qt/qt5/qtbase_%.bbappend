@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " sql-sqlite"
+PACKAGECONFIG:append = " sql-sqlite eglfs"

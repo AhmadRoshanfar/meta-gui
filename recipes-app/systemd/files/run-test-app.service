@@ -1,8 +1,12 @@
 [Unit]
-Description=Running test app at startup
+Description=Run Test Application on EGLFS Platform
+DefaultDependencies=no
+Before=network-online.target
+After=local-fs.target
 
 [Service]
-ExecStart=/usr/share/test-1.0/test
+ExecStart=/usr/share/test-1.0/test -platform eglfs
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target

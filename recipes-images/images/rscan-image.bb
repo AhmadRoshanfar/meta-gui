@@ -4,6 +4,9 @@ LICENSE= "CLOSED"
 inherit core-image
 
 # IMAGE_FSTYPES += "wic.gz squashfs"
+# INIT_MANAGER = "systemd"
+# IMAGE_INSTALL:remove = "psplash"
+INITRAMFS_IMAGE = "core-image-minimal-initramfs"
 
 IMAGE_LINGUAS = "en-us"
 
@@ -18,15 +21,22 @@ DEVELOPMENT_FEATURES  = "debug-tweaks ssh-server-dropbear qtcreator-debug tools-
 IMAGE_FEATURES += "${DEVELOPMENT_FEATURES} \
                    ${DEPLOYMENT_FEATURES} "
 
-PACKAGEGROUP_INSTALL = "packagegroup-core-boot"
+
+PACKAGEGROUP_INSTALL = "packagegroup-core-boot packagegroup-core-weston"
 QT_INSTALL           = "qtbase qtquickcontrols-qmlplugins qtdeclarative qtquickcontrols2 qtcharts qtvirtualkeyboard qtwayland "
 DEVELOPMENT_INSTALL  = "rsync openssh-sftp-server read-edid edid-decode libdrm libdrm-tests zsh git"
-DEPLOYMENT_INSTALL   = "usbutils custom-fonts test coreutils wayland weston-xwayland "
-
+DEPLOYMENT_INSTALL   = "custom-fonts test  wayland coreutils "
+# SPLASH_INSTALL       = "dracut plymouth"
+# usbutils coreutils
 IMAGE_INSTALL += " ${PACKAGEGROUP_INSTALL} \
                    ${DEPLOYMENT_INSTALL}   \
                    ${QT_INSTALL}           \
                    ${DEVELOPMENT_INSTALL}  \
                  "
 
-KERNEL_CMDLINE:append = " quiet initcall_debug  drm_kms_helper.edid_firmware=edid/1280x1024.bin"
+# IMAGE_INSTALL:append = " psplash-drm"
+# PREFERRED_PROVIDER_virtual/psplash = "psplash-drm"
+# PREFERRED_PROVIDER_virtual/psplash = "plymouth"
+# SPLASH = "plymouth"
+
+# KERNEL_CMDLINE:append = " quiet initcall_debug  drm_kms_helper.edid_firmware=edid/1280x1024.bin"
