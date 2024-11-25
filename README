@@ -1,41 +1,17 @@
-This README file contains information on the contents of the meta-rscan layer.
+git clone -b scarthgap git://git.yoctoproject.org/poky
+git clone -b scarthgap <https://github.com/openembedded/meta-openembedded.git>
+git clone -b scarthgap <https://git.yoctoproject.org/meta-arm>
+git clone -b scarthgap <https://git.yoctoproject.org/meta-rockchip>
+git clone <https://github.com/meta-qt5/meta-qt5.git> -b scarthgap  
 
-Please see the corresponding sections below for details.
+bitbake-layers add-layer ../meta-qt5
+bitbake-layers add-layer ../meta-gui
 
-Dependencies
-============
+cd poky
+source oe-init-build-env build
 
-  URI: <first dependency>
-  branch: <branch name>
+bitbake-layers show-layers
 
-  URI: <second dependency>
-  branch: <branch name>
-
-  .
-  .
-  .
-
-Patches
-=======
-
-Please submit any patches against the meta-rscan layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
-
-Table of Contents
-=================
-
-  I. Adding the meta-rscan layer to your build
- II. Misc
-
-
-I. Adding the meta-rscan layer to your build
-=================================================
-
-Run 'bitbake-layers add-layer meta-rscan'
-
-II. Misc
-========
-
---- replace with specific information about the meta-rscan layer ---
+$ vim conf/local.conf   
+MACHINE ??= "nanopi-m4b"
+distro ="gui-distro"
