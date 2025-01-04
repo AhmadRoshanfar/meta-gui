@@ -1,4 +1,4 @@
-SUMMARY = "custom linux image for R-Scan device"
+SUMMARY = "custom linux image"
 LICENSE= "CLOSED"
 
 inherit core-image
