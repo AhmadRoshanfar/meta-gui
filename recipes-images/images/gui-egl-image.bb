@@ -1,4 +1,4 @@
-SUMMARY = "custom linux image for R-Scan device with egl driver for fast boot"
+SUMMARY = "custom linux image with egl driver for fast boot"
 LICENSE= "CLOSED"
 
 inherit core-image
